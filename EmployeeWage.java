@@ -1,41 +1,30 @@
 package sample;
 
-public class EmployeeWage {
+public class EmployeeWage {	
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Computation Program");
+		int emp_Hour;
+		final int is_Full_Time = 1;
+		final int is_Part_Time = 2;
+		int emp_Rate_Pr_Hour= 20;
 		
-        //******************** UC:1 - Check Emp is present or absent ***************
-		
-		// initialize and declar a emp_is_present variable 
-		int emp_is_present=1;
-				
-		//take the random value
-		double checkEmp = Math.floor(Math.random()*10)%2;
-        //		System.out.println("CheckEmp: "+checkEmp);
+		int emp_Check = (int) Math.floor(Math.random()*3);
 
-		//check the codition emp is present or not 
-		if(checkEmp == emp_is_present)
-		{
-			System.out.println("Employee is Present");
+		switch(emp_Check) {
+			case is_Full_Time:
+				System.out.println("Employee is Full Time");
+				emp_Hour = 8;
+				break;
+			case is_Part_Time:
+				System.out.println("Employee is Part Time ");
+				emp_Hour = 4;
+				break;
+			default:
+				System.out.println("Emloyee is Absent");
+				emp_Hour = 0;
 		}
-		else
-			System.out.println("Emplyee is Absent");
 		
-		//************************ UC:2- Calculate Daily Emp Wage *********************************
-		
-		   // declar variable and initialize value
-			
-		   int Wage_Per_Hour = 20;
-		   int Full_Day_Hour = 8;
-					
-		   // calculate daily wage
-		   int total_Wage = Wage_Per_Hour * Full_Day_Hour;
-					
-		   //Print total Wage per Day
-		   System.out.println("Daily Employee Wage : " + total_Wage);
-		
-       
-		
+		int salary = emp_Rate_Pr_Hour * emp_Hour;
+		System.out.println("The salary of employee is :" + salary);
 	}
 
 }
