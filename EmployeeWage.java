@@ -1,38 +1,39 @@
 package sample;
 
 public class EmployeeWage {	
+	public static final int is_Part_Time = 1;
+	public static final int is_Full_Time = 2;
+	public static final int emp_Rate_Per_Hour = 20;
+	public static final int num_Of_Working_Days = 2;
+	public static final int max_Hour_In_Month = 10;
+	
 	public static void main(String[] args) {
 
-		final int is_Full_Time = 1;
-		final int is_Part_Time = 2;
-		final int emp_Rate_Per_Hour = 20;
-		int total_Salary = 0;
-		int working_Days = 20;
-		int emp_Hour = 0;
-		for(int i=0; i<=working_Days; i++){
+		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+		
+		while( totalEmpHrs<=max_Hour_In_Month && totalWorkingDays  < num_Of_Working_Days ){
+			totalWorkingDays++;
+			int empCheck = (int) Math.floor(Math.random()* 10)  % 3;
 			
-			int emp_Check = (int) Math.floor(Math.random()*3);
-
-			switch(emp_Check) {
+			switch (empCheck) {
 				case is_Full_Time:
-					emp_Hour = 8;
+					empHrs = 8;
 					break;
 				case is_Part_Time:
-					emp_Hour = 4;
+					empHrs = 4;
 					break;
 				default:
-					emp_Hour = 0;
+					empHrs = 0;
 			}
+			totalEmpHrs += empHrs;
+			System.out.println("Day :" + totalWorkingDays + " Emp Hr: " + empHrs);
 			
-			int salary = emp_Rate_Per_Hour*emp_Hour;
-			
-			total_Salary += salary;
 		}
-	
-		System.out.println("Monthly salary of employee is : " + total_Salary);
-     	
-		int salary = emp_Rate_Per_Hour * emp_Hour;
-		System.out.println("The salary of employee is :" + salary);
+
+                      
+		int totalEmpWage = totalEmpHrs * emp_Rate_Per_Hour; 
+		System.out.println("Total Emp Wage :" + totalEmpWage);
+       
 
 	}
 
